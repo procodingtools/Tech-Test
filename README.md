@@ -13,16 +13,17 @@ RentReady Technical Exam. This app was written in Flutter.
 
 ## Microsoft DataVerse
 This Application is backed by dataverse, which allows data to be integrated from multiple sources into a single store.
-Since we're using a mobile application, we have to authorize the app to access to powerapps API's using `Bearer` token by creating an application in Azure AD and using the Server to Server (S2S) athentication method.
+Since we're using a mobile application, we have to authorize the app to access to powerapps API's using `Bearer` token by creating an Azure AD application and using the Server to Server (S2S) athentication method.
 <br/>
 
 ## Unit test
 All unit test files are located in the `test` folder.
 The `accounts_test.dart` and `provinces_test.dart` files contains a set of tests for testing most case scenarios.
-To perform the unit test, just execute the following command:
+To perform the unit test, just execute the following commands:
 
 **Test accounts**
-$ flutter test test/accounts_test.dart
+
+    $ flutter test test/accounts_test.dart
 
 **Test provinces**
 
@@ -90,6 +91,6 @@ In case of misunderstanding, mismatching with the test requirements or something
 Thank you.
 
 ## Credits
-[Flutter](http://flutter.io): For this awesome framework.
-[Microsoft](https://microsoft.com): For the Powerapps Dataverse.
+[Flutter](http://flutter.io): For this awesome framework.  
+[Microsoft](https://microsoft.com): For the Powerapps Dataverse.  
 [Docker](https://docker.com): For providing the containers environment.
