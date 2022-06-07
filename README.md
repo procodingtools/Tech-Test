@@ -47,7 +47,7 @@ If the output shows `All tests passed`, the application is safe to publish other
 <br/>
 
 ## Build with docker
-Since we're using an Ubuntu 18 based image to build the project, it is impossible to build iOS application because it requires xCode to be installed which is only available on macOS, just Android apk.
+Since we're using an Ubuntu 18 based image to build the project, it is impossible to build iOS application as it requires Xcode to be installed which is only available on macOS, to generate at the end an Android apk.
 
 The `Dockerfile` is in the project root folder. This will create an ubuntu based image and install the environment to build the app. Also, will create a script to automate the build by cleaning project and build it.
 
