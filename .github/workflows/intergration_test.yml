@@ -11,20 +11,15 @@ jobs:
         target: [playstore]
     steps:
       - uses: actions/checkout@v2
-      - name: Installing Homebrew
-        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      - name: Installing java 11
-        run: brew install openjdk@11
+      #- name: Installing Homebrew
+      #  run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      #- name: Installing java 11
+      #  run: brew install openjdk@11
       - name: Setting Java 11 as default
-        run: |
-          export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home"
-          export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-          export PATH="$PATH:/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home/bin/"
-          export PATH="/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home/bin/:$PATH"
-          echo 'export PATH="$PATH:/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home/bin/"' >> /Users/runner/.bash_profile
-          echo 'export PATH="/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home/bin/:$PATH"' >> /Users/runner/.bash_profile
-          echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> /Users/runner/.bash_profile
-          source /Users/runner/.bash_profile
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
       - name: Checking java version
         run: java -version
       - uses: subosito/flutter-action@v1
