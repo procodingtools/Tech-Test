@@ -22,7 +22,7 @@ jobs:
           echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> /Users/runner/.bash_profile
           source /Users/runner/.bash_profile
       - name: Checking java version
-        run: java --version
+        run: java -version
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '3.0.1'
