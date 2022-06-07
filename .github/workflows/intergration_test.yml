@@ -18,7 +18,7 @@ jobs:
       - name: Setting Java 11 as default
         run: |
           export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home"
-          export PATH="/usr/local/opt/openjdk@11/bin:$PATH
+          export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
           echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> /Users/runner/.bash_profile
           source /Users/runner/.bash_profile
       - name: Checking java version
