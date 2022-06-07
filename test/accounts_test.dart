@@ -5,7 +5,7 @@ import 'package:tech_test/tools/web_services/accounts.dart';
 
 void main() {
   group('Testing accounts', () {
-    test('check if unauthorized exception is not thrown', () async {
+    test('check if unauthorized exception was not thrown', () async {
       expect(await AccountsWebService().getAccounts() == null, isNot(throwsA(UnauthorizedException())));
     });
 

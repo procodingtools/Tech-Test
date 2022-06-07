@@ -28,9 +28,7 @@ class AccountsWebService extends BaseWebService {
           .data;
 
       /// Parsing json is expensive, running in isolate
-      final accounts = List.of(response['value'])
-          .map((e) => AccountModelMinimal.fromJson(e))
-          .toList();
+      final accounts =  await compute<List<dynamic>, List<AccountModelMinimal>>(_parseAccounts, response['value']); AccountsListResponseModel(accounts: accounts);
       //await compute<Map<String, dynamic>, List<AccountModelMinimal>>(_parseAccounts, response);
       final model = AccountsListResponseModel(accounts: accounts);
       if (Map.of(response).containsKey('@odata.nextLink')) {
@@ -109,6 +107,9 @@ class AccountsWebService extends BaseWebService {
   }
 }
 
+List<AccountModelMinimal> _parseAccounts(List<dynamic> response) {
+  return response.map((e) => AccountModelMinimal.fromJson(e)).toList();
+}
 
 AccountModelFull _parseAccount(Map<String, dynamic> response) {
   return AccountModelFull.fromJson(response);
