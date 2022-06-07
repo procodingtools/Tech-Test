@@ -77,6 +77,8 @@ Next, run the image in the background in a container called `flutter_container`.
 
     docker run  -it -d -v /var/run/docker.sock:/var/run/docker.sock --name flutter_container --privileged -v "$(pwd)":/home/developer/app flutter_docker
 
+In my case, on macOS, I have to add `-v /var/run/docker.sock:/var/run/docker.sock` to start the container without issues. 
+
 After the container starts, the build script `build.sh` will be executed to build release apk.
 
     docker exec -it flutter_container ../build.sh  
