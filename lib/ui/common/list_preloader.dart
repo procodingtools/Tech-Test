@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tech_test/tools/res.dart';
+
+import '../../tools/test_pointers.dart';
 
 class ListPreloader extends StatelessWidget {
   const ListPreloader({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class ListPreloader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      label: Res.loadingMoreSemantics,
+      label: TestPointers.loadingMoreSemantics,
       child: Padding(
           padding: const EdgeInsets.only(top: 8.0),
       child: Row(

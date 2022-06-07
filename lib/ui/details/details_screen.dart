@@ -6,7 +6,7 @@ import 'package:tech_test/tools/web_services/accounts.dart';
 import 'package:tech_test/ui/common/account_image.dart';
 import 'package:tech_test/ui/common/text_paire.dart';
 
-import '../../tools/res.dart';
+import '../../tools/test_pointers.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({Key? key, required this.account}) : super(key: key);
@@ -71,7 +71,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     itemBuilder: (context, index) {
                       final title = _accountJson.keys.elementAt(index);
                       return Semantics(
-                        label: Res.detailsSemantics,
+                        label: TestPointers.detailsSemantics,
                         child: Container(
                           padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                           color: index.isOdd ? Colors.grey[200] : Colors.white,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_test/tools/providers/filter.dart';
-import 'package:tech_test/tools/res.dart';
+
+import '../../tools/test_pointers.dart';
 
 class FilterContent extends StatefulWidget {
   const FilterContent(
@@ -55,7 +56,7 @@ class _FilterContentState extends State<FilterContent>
                 });
               }),
           Semantics(
-            label: Res.provincesFilterSemantics,
+            label: TestPointers.provincesFilterSemantics,
           child: _dropdown(
               text: 'Filter by state or province',
               items: widget.provinces,
@@ -74,7 +75,7 @@ class _FilterContentState extends State<FilterContent>
               children: [
                 Expanded(
                   child: Semantics(
-                    label: Res.clearFilterSemantics,
+                    label: TestPointers.clearFilterSemantics,
                     child: MaterialButton(
                       onPressed: () {
                         if (_selectedProvince != null ||
@@ -105,7 +106,7 @@ class _FilterContentState extends State<FilterContent>
                 ),
                 Expanded(
                   child: Semantics(
-                    label: Res.applyFilterSemantics,
+                    label: TestPointers.applyFilterSemantics,
                     child: MaterialButton(
                       onPressed: () {
                         final filterProvider = Provider.of<FilterProvider>(

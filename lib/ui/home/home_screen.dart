@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_test/tools/providers/filter.dart';
-import 'package:tech_test/tools/res.dart';
 import 'package:tech_test/tools/web_services/accounts.dart';
 import 'package:tech_test/tools/web_services/auth.dart';
 import 'package:tech_test/ui/common/account_image.dart';
@@ -14,6 +13,7 @@ import 'package:tech_test/ui/common/text_paire.dart';
 import 'package:tech_test/ui/details/details_screen.dart';
 
 import '../../models/account_minimal.dart';
+import '../../tools/test_pointers.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: _accounts.isEmpty
                             ? Center(
                                 child: Semantics(
-                                  label: Res.noDataSemantics,
+                                  label: TestPointers.noDataSemantics,
                                     child: const Text('No accounts')
                                 ),
                               )
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
       title: const Text('Accounts'),
       actions: [
         Semantics(
-          label: Res.filterButtonSemantics,
+          label: TestPointers.filterButtonSemantics,
           child: InkWell(
             onTap: () {
               /// Using popupmenu will cause dropdown value change issue because
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         /// Toggle view switch
         Semantics(
-          label: Res.viewToggleSemantics,
+          label: TestPointers.viewToggleSemantics,
           child: TextButton(
             onPressed: () {
               setState(() {
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _gridView() {
     return GridView.builder(
-      key: Res.gridViewKey,
+      key: TestPointers.gridViewKey,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 2 / 2.5,
             crossAxisSpacing: 5.0,
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
   /// Widget used in gridview
   Widget _accountGridItem(AccountModelMinimal account) {
     return Semantics(
-      label: Res.profileItemSemantics,
+      label: TestPointers.profileItemSemantics,
       child: Card(
         elevation: 5.0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -257,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _listView() {
     return ListView.builder(
-      key: Res.listViewKey,
+      key: TestPointers.listViewKey,
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) => _accountListItem(index),
@@ -269,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _accountListItem(int index) {
     final account = _accounts[index];
     return Semantics(
-      label: Res.profileItemSemantics,
+      label: TestPointers.profileItemSemantics,
       child: InkWell(
         onTap: () => _gotoDetails(account),
         child: Container(
@@ -327,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _searchBar() {
     return TextFormField(
-      key: Res.searchTextFieldKey,
+      key: TestPointers.searchTextFieldKey,
       controller: _searchController,
       enabled: !_isLoading,
       onFieldSubmitted: (txt) {
@@ -409,9 +409,11 @@ class _HomeScreenState extends State<HomeScreen> {
               : null);
       _nextLink = null;
     } finally {
+      if (mounted) {
         setState(() {
           _isLoading = false;
         });
+      }
     }
   }
 
