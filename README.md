@@ -33,7 +33,7 @@ If the output shows `All tests passed`, the application is safe to publish other
 <br/>
 
 ## UI test
-All UI test files are located in the `integration_test` folder.
+The UI test file is located in the `integration_test` folder.
 As we cannot use the flutter widget test to make HTTP calls, we used the integration test method, which is slower but more efficient, to test every state in the application.
 The `ui_test.dart` file contains a tests group to test most case scenarios.
 
