@@ -16,7 +16,11 @@ jobs:
       - name: Installing java 11
         run: brew install openjdk@11
       - name: Setting Java 11 as default
-        run: echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> /Users/runner/.bash_profile && source /Users/runner/.bash_profile
+        run: |
+          export JAVA_HOME="/usr/local/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home"
+          export PATH="/usr/local/opt/openjdk@11/bin:$PATH
+          echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> /Users/runner/.bash_profile
+          source /Users/runner/.bash_profile
       - name: Checking java version
         run: java --version
       - uses: subosito/flutter-action@v1
